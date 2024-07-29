@@ -1,0 +1,301 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    color: #031749;
+    font-size: 1.25rem;
+    background-color: #f0f0f0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.sidebar {
+    height: 100%; /* Full-height: always stays full-height */
+    width: 0; /* Initial width of 0 for the sidebar */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #031749; /* Color of the sidebar */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+    padding-top: 60px; /* Place content 60px from the top */
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+h1 {
+    margin-left: 10px;
+    font-size: 3.5rem;
+    margin-top: 0; 
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.menu {
+    background: none;
+    border: none;
+    font-size: 35px;
+    font-size: 2.4rem;
+    color: #031749; /* Icono del menú en blanco para contraste */
+}
+
+.btn {
+    padding: 15px 50px;
+    background-color: #031749;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.15rem;
+    margin: 20px;
+    width: 250px;
+}
+
+.horizontal-container {
+    display: flex;
+    justify-content: space-between; /* Distribuir el espacio entre los elementos */
+    align-items: stretch; /* Asegura que ambos elementos tengan la misma altura */
+    margin-bottom: 20px; /* Espacio entre el contenedor horizontal y el siguiente elemento */
+}
+
+.titulos_btn {
+    flex: 1; /* Permite que .titulos_btn ocupe el espacio necesario */
+    margin-right: 20px; /* Espacio a la derecha de .titulos_btn */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    padding: 20px; /* Opcional: Añade un padding para dar espacio interno */
+}
+
+.video {
+    flex: 1; /* Permite que .video ocupe el espacio necesario */
+    display: flex; /* Asegura que los elementos internos se alineen correctamente */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    transform: scale(1.18);
+}
+
+.webcam {
+    border: 10px solid #031749; /* Añade un borde alrededor del contenedor */
+
+}
+
+
+
+
+/* Estilos para las predicciones en tiempo real */
+#label-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 2%;
+    align-items: center;
+    background-color: #F1F5FF; /* Fondo claro */
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.label-item {
+    text-align: center; /* Centrar texto */
+}
+
+.label-item .label-percentage {
+    font-size: 1.5rem; /* Tamaño grande para el porcentaje */
+    font-weight: bold; /* Negrita */
+    margin-bottom: 10px; /* Espacio inferior */
+}
+
+.label-item .label-name {
+    font-size: 1rem; /* Tamaño normal para el nombre */
+    color: #031749; /* Color del texto */
+}
+
+/* RESULTADOS */
+
+#container_results {
+    border-radius: 10px; /* Bordes redondeados */
+    text-align: center; /* Centrar el texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar los elementos horizontalmente */
+}
+
+#container_results h2 {
+    color: #031749; /* Color del texto */
+    font-size: 3.9rem; /* Tamaño de fuente */
+    margin-bottom: 10px;
+    margin-top: 0; /* Eliminar margen superior */
+    line-height: 1.2; /* Ajustar la altura de la línea */
+}
+
+#container_results h3 {
+    color: #031749; /* Color del texto */
+    font-size: 0.9rem; /* Tamaño de fuente */
+    margin-bottom: 30px;
+    margin-top: 0; /* Eliminar margen superior */
+    line-height: 1.2; /* Ajustar la altura de la línea */
+}
+
+
+#results-content {
+    display: flex;
+    flex-direction: column; /* Alinear en columna */
+    align-items: center; /* Centrar los elementos horizontalmente */
+    margin-bottom: 30px;
+    width: 100%; /* Asegurar que los elementos ocupen el ancho completo */
+}
+
+#results-content .result-item {
+    font-size: 1.5rem;
+    color: #031749;
+    margin-bottom: 10px;
+    text-align: center; /* Alinear el texto a la izquierda */
+    width: 100%; /* Asegurar que los elementos ocupen el ancho completo */
+}
+
+#results-content .result-item .label-name {
+    font-weight: bold;
+}
+
+#container_results .btn-container {
+    display: flex;
+    justify-content: center; /* Centrar los botones horizontalmente */
+}
+
+
+
+/* PIE DE PAGINA */
+.card {
+    display: flex;
+    height: 70px;
+    width: 350px; /* Aumenta el ancho para acomodar más iconos */
+}
+
+.card svg {
+    position: absolute;
+    display: flex;
+    width: 60%;
+    height: 100%;
+    font-size: 24px;
+    font-weight: 700;
+    opacity: 1;
+    transition: opacity 0.25s;
+    z-index: 2;
+    cursor: pointer;
+    fill: #031749; /* Color de los iconos */
+}
+
+.card .social-link1, .card .social-link2, .card .social-link3, .card .social-link4, .card .social-link5 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    color: #031749;
+    font-size: 24px;
+    text-decoration: none;
+    transition: 0.25s;
+    border-radius: 50px;
+}
+
+.card svg {
+    transform: scale(1);
+}
+
+.card .social-link1:hover {
+    background: #f09433;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+    animation: bounce_613 0.4s linear;
+}
+
+.card .social-link2:hover {
+    background-color: #00ccff;
+    animation: bounce_613 0.4s linear;
+}
+
+.card .social-link3:hover {
+    background-color: #5865f2;
+    animation: bounce_613 0.4s linear;
+}
+
+.card .social-link4:hover {
+    background-color: #12a50b;
+    animation: bounce_613 0.4s linear;
+}
+
+.card .social-link5:hover {
+    background-color: #3b5998; /* Facebook color */
+    animation: bounce_613 0.4s linear;
+}
+
+
+@keyframes bounce_613 {
+    40% {
+        transform: scale(1.4);
+    }
+    60% {
+        transform: scale(0.8);
+    }
+    80% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+footer {
+    padding: 30px;
+    background-color: #80849c; /* Fondo del pie de página */
+    margin-top: auto; /* Empuja el footer al final */
+    display: flex;
+}
+
+.social-icons {
+    display: flex; /* Asegura que los iconos se alineen en fila */
+    color: #031749; /* Color de los enlaces en el pie de página para contraste */
+    margin: 0 10px;
+    padding: 20px;
+    text-decoration: none;
+    width: 100%;
+    justify-content: flex-end;
+    background-color: white; /* Elimina el subrayado de los enlaces */
+}
+
+
+
