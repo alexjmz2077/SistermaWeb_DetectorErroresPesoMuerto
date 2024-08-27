@@ -63,8 +63,8 @@ let isRunning = false;
 let predictionCounts = {};
 let lastPredictedClass = '';
 let predictionBuffer = [];
-const BUFFER_SIZE = 5;
-const THRESHOLD = 0.7;
+const BUFFER_SIZE = 20;
+const THRESHOLD = 0.51;
 
 async function init() {
     document.getElementById('container').style.display = 'flex';
@@ -133,29 +133,43 @@ async function predict() {
     // Determinar la clase más frecuente en el buffer
     const predictedClass = getMostFrequentPrediction(predictionBuffer);
 
-    // Actualizar los labels
-    const validPredictions = predictions.filter(pred => pred.className !== 'nada' && pred.className !== 'bien');
-    validPredictions.forEach((prediction, i) => {
-        const labelDiv = labelContainer.childNodes[i];
-        labelDiv.querySelector('.label-percentage').textContent = `${(prediction.probability * 100).toFixed(0)}%`;
-        labelDiv.querySelector('.label-name').textContent = prediction.className;
+    // Si la clase más frecuente en el buffer coincide con la predicción actual, mostrarla
+    if (predictedClass === predictions[maxIndex].className && maxProbability > THRESHOLD) {
+        // Actualizar los labels
+        const validPredictions = predictions.filter(pred => pred.className !== 'nada' && pred.className !== 'bien');
+        validPredictions.forEach((prediction, i) => {
+            const labelDiv = labelContainer.childNodes[i];
+            labelDiv.querySelector('.label-percentage').textContent = `${(prediction.probability * 100).toFixed(0)}%`;
+            labelDiv.querySelector('.label-name').textContent = prediction.className;
 
-        // Aplicar estilos basado en la probabilidad más alta
-        if (prediction.className === predictions[maxIndex].className) {
-            labelDiv.querySelector('.label-percentage').style.color = 'red';
-            labelDiv.querySelector('.label-name').style.color = 'red';
-        } else {
+            // Aplicar estilos basado en la probabilidad más alta
+            if (prediction.className === predictions[maxIndex].className) {
+                labelDiv.querySelector('.label-percentage').style.color = 'red';
+                labelDiv.querySelector('.label-name').style.color = 'red';
+            } else {
+                labelDiv.querySelector('.label-percentage').style.color = '#031749';
+                labelDiv.querySelector('.label-name').style.color = '#031749';
+            }
+        });
+
+        // Incrementar el conteo de la predicción
+        if (predictedClass !== lastPredictedClass) {
+            predictionCounts[predictedClass]++;
+            lastPredictedClass = predictedClass;
+        }
+    } else {
+        // Ocultar las predicciones si no hay consistencia
+        const validPredictions = predictions.filter(pred => pred.className !== 'nada' && pred.className !== 'bien');
+        validPredictions.forEach((prediction, i) => {
+            const labelDiv = labelContainer.childNodes[i];
+            labelDiv.querySelector('.label-percentage').textContent = `0%`;
+            labelDiv.querySelector('.label-name').textContent = '---';
             labelDiv.querySelector('.label-percentage').style.color = '#031749';
             labelDiv.querySelector('.label-name').style.color = '#031749';
-        }
-    });
-
-    // Incrementar el conteo de la predicción solo si la probabilidad es mayor al 70%
-    if (predictions[maxIndex].probability > THRESHOLD && predictedClass !== 'nada' && predictedClass !== 'bien' && predictedClass !== lastPredictedClass) {
-        predictionCounts[predictedClass]++;
-        lastPredictedClass = predictedClass;
+        });
     }
-};
+}
+
 
 function getMostFrequentPrediction(buffer) {
     const frequency = {};

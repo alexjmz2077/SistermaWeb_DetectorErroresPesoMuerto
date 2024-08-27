@@ -1,4 +1,6 @@
-/* RECOMENDACIONES */
+/* Recomendaciones Responsivas */
+
+/* Estilos generales que ya tienes */
 .intro {
     text-align: center;
     padding: 10px 10px;
@@ -43,20 +45,53 @@
     font-size: 1.15rem;
 }
 
-.division {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+/* Ajustes para pantallas pequeñas (móviles) */
+@media only screen and (max-width: 768px) {
+    .division {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .text-content {
+        width: 100%; /* Ocupa el 100% del ancho disponible */
+        margin-bottom: 20px; /* Espacio inferior para separar del siguiente contenido */
+    }
+
+    .division img {
+        width: 100%; /* Ajusta la imagen para que ocupe todo el ancho del contenedor */
+        max-width: none; /* Elimina el límite del ancho máximo en pantallas pequeñas */
+        height: auto;
+    }
+
+    .recommendation h3 {
+        font-size: 1.5rem; /* Reduce ligeramente el tamaño del título en pantallas pequeñas */
+    }
+
+    .recommendation p, .recommendation ul {
+        font-size: 1rem; /* Reduce ligeramente el tamaño del texto */
+    }
 }
 
-.text-content {
-    width: 60%;
-}
+/* Ajustes para tablets */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .division {
+        flex-direction: column;
+        align-items: center;
+    }
 
-.division img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    display: block; 
-    margin: 0 auto;
+    .text-content {
+        width: 80%; /* Ocupa el 80% en lugar de un 60% para mejorar la legibilidad */
+        margin-bottom: 20px;
+    }
+
+    .division img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+    }
 }

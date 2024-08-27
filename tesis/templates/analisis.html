@@ -10,14 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
     <!-- <script src="{% static 'js/fun.js' %}" defer></script> --> 
-    <script src="{% static 'js/fun2.js' %}" defer></script>
+    <script src="{% static 'js/analisis.js' %}" defer></script>
+    
     <script>
         // Definir las URLs en el contexto global de JavaScript
         const urlInicio = "{% url 'inicio' %}";
         const urlRecomendaciones = "{% url 'recomendaciones' %}";
-        const URL = "{% static 'Models/Tesis_f/' %}";
+        const modelURLBase = "{% static 'Models/Tesis_f/' %}";
         const urlAnalisis = "{% url 'predict_frame' %}";
-        const nombreUsuario = "{{ user.first_name }} {{ user.last_name }}";
     </script>
 </head>
 <body>
@@ -45,19 +45,12 @@
             {% if login_error %}
                 <script>
                     alert('Usuario o contraseña incorrectos. Por favor, intente nuevamente.');
-                </script>
-            {% endif %}
-            {% if register_error %}
-                <script>
-                    alert('{{ register_error }}');
+                    openLoginPopup();  // Abre el popup de login automáticamente para mayor conveniencia.
                 </script>
             {% endif %}
         </header>
         <main>
             <br>
-    
-
-
             <!-- Login Popup -->
             <div id="loginPopup" class="popup" style="display: none;">
                 <div class="popup-content">
@@ -87,7 +80,7 @@
                         {% csrf_token %}
                         <label for="registerUsername">Usuario</label>
                         <input type="text" id="registerUsername" name="username" required>
-
+                        
                         <label for="registerFirstName">Nombre</label>
                         <input type="text" id="registerFirstName" name="first_name" required>
             
@@ -117,42 +110,38 @@
                     </form>
                 </div>
             </div>
+            <main>
+                <br>
+                <div class="horizontal-container" id="hz">
+                    <div class="titulos_btn">
+                        <h1>Análisis de Video para Peso Muerto</h1>
+                        <div class="botones_rd" id="btns">
+                            <input type="file" id="videoUpload" accept="video/*">
+                            {% if user.is_authenticated %}
+                                <button class="btn" id="uploadButton" type="button" onclick="handleVideoUpload()">Subir Video</button>
+                            {% else %}
+                                <button class="btn" id="uploadButton" type="button" onclick="showLoginMessage()">Subir Video</button>
+                            {% endif %}
+                            
+                            <button class="btn" id="resultadosButton" type="button" style="display: none;" onclick="mostrarResultados()">Resultados</button>
+                        </div>
+                    </div>
+                    <div class="video" id="video-container">
+                        <video id="uploadedVideo" width="450" controls></video>
+                    </div>
+                </div>
+                <br>
+                <div id="label-container" style="display: none;"></div>
+                <div id="container_results" style="display: none;">
+                    <h2>Resultados</h2>
+                    <h3>Detector de errores en peso muerto</h3>
+                    <br><br>
+                    <div id="results-content"></div>
+                    <button class="btn" onclick="guardarResultados()">Guardar</button>
+                    <button class="btn" id="salirButton" onclick="PaginaAnalisis()">Salir</button>
+                </div>
+            </main>
             
-
-
-
-            <div class="horizontal-container" id="hz">
-                <div class="titulos_btn">
-                    <h1>Detector de errores en Peso Muerto</h1>
-                    <div class="botones_rd" id="btns">
-                        {% if user.is_authenticated %}
-                            <button class="btn" id="startButton" type="button" onclick="init()">Empezar</button>
-                        {% else %}
-                            <button class="btn" id="startButton" type="button" onclick="showLoginMessage()">Empezar</button>
-                        {% endif %}
-                        <button class="btn" id="resultadosButton" type="button" style="display: none;" onclick="resultados()">Resultados</button>
-                        <button class="btn" id="salirButton" style="display: none;" onclick="Salir()">Salir</button>
-                    </div>
-                </div>
-                <div class="video", id="container" >
-                    <div class="webcam" id="webcam-container">
-                        <img src="{% static 'img/screen_record.png' %}" alt="" id="img_screen">
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div id="label-container" style="display: none;" ></div>
-            <div id="container_results" style="display: none;">
-                <h2>Resultados</h2>
-                <h3>Detector de errores en peso muerto</h3>
-                <br><br>
-                <div id="results-content"></div>
-                <button class="btn" onclick="Guardar()"> Guardar .csv</button>
-                <button class="btn" onclick="GuardarPDF()"> Guardar .pdf</button>
-                <button class="btn" id="salirButton2" onclick="Salir()" >Salir</button>
-            </div>
-        </main>
-        <br>
         <footer>
             <div class="social-icons">
                 <div class="card">
@@ -187,12 +176,9 @@
             </div>
         </footer>
     </div>
+
 </body>
 </html>
 
-
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.14/jspdf.plugin.autotable.min.js"></script>

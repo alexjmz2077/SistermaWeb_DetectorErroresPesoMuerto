@@ -1,13 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
-class Usuario(models.Model):
-    username = models.CharField('Usuario', max_length=100)
-    nombres = models.CharField('Nombres', max_length=100)
-    contraseña = models.CharField('Contraseña',max_length=100)
-    fecha_nacimiento = models.DateField('Fecha de Nacimiento')
+class SesionEntrenamiento(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)  # Relación con el usuario de Django
+    numero_error = models.IntegerField()  # Número de error
+    tipo_error = models.CharField(max_length=255)  # Tipo de error
+    hora_error = models.DateTimeField(auto_now_add=True)  # Hora del error, se registra automáticamente cuando se crea la entrada
 
-    REQUIRED_FIELDS = []
-    USERNAME_FIELD = 'username'
     def __str__(self):
-        return self.username
+        return f"Error {self.numero_error} - {self.tipo_error} - {self.hora_error} - Usuario: {self.usuario.username}"

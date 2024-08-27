@@ -8,14 +8,14 @@
     <title>Tesis</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="{% static 'js/fun.js' %}" defer></script>
+    <script src="{% static 'js/fun2.js' %}" defer></script>
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
     <link rel="stylesheet" href="{% static 'css/reco.css' %}">
     <script>
         // Definir las URLs en el contexto global de JavaScript
         const urlInicio = "{% url 'inicio' %}";
         const urlRecomendaciones = "{% url 'recomendaciones' %}";
-
+        const urlAnalisis = "{% url 'predict_frame' %}";
     </script>
 
 </head>
@@ -23,6 +23,7 @@
     <div class="sidebar" id="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a onclick="Salir()">Inicio</a>
+        <a onclick="PaginaAnalisis()">Análisis de Video</a>
         <a onclick="Pagina2()">Recomendaciones</a>
     </div>
     <div class="container">

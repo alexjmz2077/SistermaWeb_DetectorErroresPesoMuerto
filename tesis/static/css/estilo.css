@@ -61,7 +61,9 @@ h1 {
 header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 20px;
+    flex-wrap: nowrap;
 }
 
 .menu {
@@ -81,6 +83,7 @@ header {
     font-size: 1.15rem;
     margin: 20px;
     width: 250px;
+    cursor: pointer;
 }
 
 .horizontal-container {
@@ -104,7 +107,7 @@ header {
     display: flex; /* Asegura que los elementos internos se alineen correctamente */
     justify-content: center; /* Centra los elementos horizontalmente */
     align-items: center; /* Centra los elementos verticalmente */
-    transform: scale(1.18);
+    transform: scale(1);
 }
 
 .webcam {
@@ -299,3 +302,290 @@ footer {
 
 
 
+
+
+
+.auth-buttons {
+    margin-left: auto;
+}
+
+/* Botón Invertido Pequeño y Alineado a la Derecha */
+.auth-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-right: 10px;
+}
+
+.btn.inverted {
+    background-color: white;
+    color: #031749;
+    border: 2px solid #031749;
+    padding: 8px 5px;
+    font-size: 0.9rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn.inverted:hover {
+    background-color: #031749;
+    color: white;
+}
+
+
+.welcome-message {
+    font-size: 1rem; /* Tamaño de la fuente */
+    color: #031749; /* Color del texto */
+    margin-right: 15px; /* Espacio a la derecha */
+    font-weight: 500; /* Grosor del texto */
+    display: flex;
+    align-items: center; /* Centrar verticalmente si se usa con otros elementos */
+}
+
+/* Popups */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.popup-content h2 {
+    margin-top: 0;
+}
+
+.popup-content .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.popup-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-content form label {
+    margin-bottom: 5px;
+}
+
+.popup-content form input,
+.popup-content form select {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.popup-content form button {
+    background-color: #031749;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+/* Ajustes generales para pantallas pequeñas */
+@media only screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    #container_results h2 {
+        color: #031749; /* Color del texto */
+        font-size: 2.5rem; /* Tamaño de fuente */
+        margin-bottom: 10px;
+        margin-top: 0; /* Eliminar margen superior */
+        line-height: 1.2; /* Ajustar la altura de la línea */
+    }
+
+    .menu {
+        font-size: 2rem;
+    }
+
+    .auth-buttons {
+        display: flex;
+        align-items: center; /* Alinea verticalmente en el centro */
+        gap: 5px; /* Espacio entre el nombre y el botón */
+    }
+    
+    .welcome-message {
+        margin: 0; /* Elimina márgenes innecesarios */
+        white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+        font-size: 0.65rem;
+    }
+    
+    .btn.inverted {
+        padding: 4px 8px; /* Ajusta el padding para que el botón no ocupe demasiado espacio */
+        font-size: 0.6rem; /* Un tamaño de fuente más pequeño */
+        white-space: nowrap; /* Evita que el texto se rompa en dos líneas */
+        display: inline-block; /* Asegura que el botón no se expanda más de lo necesario */
+        max-width: 100%; /* Evita que el botón se desborde */
+        box-sizing: border-box; /* Incluye el padding dentro del ancho del botón */
+    }
+    
+    
+    img {
+        width: 100%; /* La imagen se ajusta al 100% del ancho de su contenedor */
+        height: auto; /* Mantiene la proporción de la imagen */
+        max-width: 100%; /* Evita que la imagen se salga del contenedor */
+        display: block; /* Elimina cualquier espacio extra generado por elementos inline */
+        margin: 0 auto; /* Centra la imagen si hay espacio disponible */
+    }
+    
+
+    .horizontal-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .video {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.5rem;
+        width: 95%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .video video {
+        width: 100%;
+        height: auto;
+        max-height: 300px; /* Limita la altura máxima del video */
+    }
+    
+
+    .btn {
+        width: 80%;
+        font-size: 1rem;
+    }
+
+    .titulos_btn {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+
+    footer {
+        padding: 20px;
+        background-color: #80849c; /* Fondo del footer */
+        text-align: center;
+        margin-top: auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .social-icons {
+        display: flex;
+        justify-content: center; /* Centra los íconos horizontalmente */
+        align-items: center;
+        gap: 15px; /* Espacio entre los íconos */
+        flex-wrap: wrap; /* Permite que los íconos se muevan a la siguiente línea si es necesario */
+    }
+    
+    .card {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    
+    .card a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px; /* Ajusta el tamaño de los contenedores de los íconos */
+        height: 50px;
+        color: white;
+        font-size: 1.5rem;
+        text-decoration: none;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+    }
+    
+    .card a:hover {
+        background-color: #f09433; /* Efecto hover */
+    }
+    
+}
+
+/* Ajustes para tablets */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .menu {
+        font-size: 2.2rem;
+    }
+
+    .auth-buttons {
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .horizontal-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .video {
+        width: 90%;
+    }
+
+    .btn {
+        width: 70%;
+        font-size: 1.1rem;
+    }
+    .botones_rd {
+        display: flex;
+        flex-direction: column; /* Mantiene los botones en una columna */
+        align-items: center; /* Centra los botones horizontalmente */
+        gap: 5px;
+        width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+        margin: 0 auto; /* Centra el contenedor dentro del área */
+    }
+}
+
+
+
+@media only screen and (orientation: landscape) {
+    .horizontal-container {
+        flex-direction: row;
+    }
+}

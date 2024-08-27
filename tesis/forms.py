@@ -1,31 +1,19 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.models import User
+
+class RegistroForm(UserCreationForm):
+    first_name = forms.CharField(max_length=30, required=True, help_text='Nombre')
+    last_name = forms.CharField(max_length=30, required=True, help_text='Apellido')
+    email = forms.EmailField(required=True)
+    gender = forms.ChoiceField(choices=[('masculino', 'Masculino'), ('femenino', 'Femenino')])
+    dob = forms.DateField(label="Fecha de Nacimiento", widget=forms.DateInput(attrs={'type': 'date'}))
+
+    class Meta:
+        model = User
+        fields = ["first_name", "last_name", "username", "email", "password1", "password2", "gender", "dob"]
 
 
-class RegistroForm(forms.Form):
-    username = forms.CharField( label='Usuario', max_length=100, widget=forms.TextInput(
-        attrs={
-            'placeholder':'Ingrese su Usuario'
-        }))
-    nombres = forms.CharField(label='Nombres', max_length=120, widget=forms.TextInput(
-        attrs={
-            'placeholder':'Ingrese sus nombres completos'
-        }))
-    contraseña = forms.CharField(label='Contraseña', widget=forms.PasswordInput(
-        attrs={
-            'placeholder':'Ingrese su contraseña',
-            'id' : 'password',
-            'requires' : 'requires'
-        }))
-    fecha_nacimiento = forms.DateField(label='Fecha de Nacimiento',widget=forms.TextInput(
-        attrs={
-            'type':'date'
-        }))
-    
-
-class LoginForm(forms.Form):
-    username = forms.CharField(label='Usuario', max_length=100, widget=forms.TextInput(
-        attrs={'placeholder': 'Ingrese su Usuario'}
-    ))
-    contraseña = forms.CharField(label='Contraseña', widget=forms.PasswordInput(
-        attrs={'placeholder': 'Ingrese su contraseña'}
-    ))
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(label="Usuario")
+    password = forms.CharField(widget=forms.PasswordInput, label="Contraseña")
