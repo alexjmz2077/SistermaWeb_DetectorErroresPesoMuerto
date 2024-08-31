@@ -35,7 +35,24 @@ function showLoginMessage() {
     alert('Por favor, inicia sesión para comenzar.');
 }
 
+// Agregar un listener para detectar la tecla "Esc"
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") { // Detecta la tecla "Esc"
+        // Cierra el popup si está abierto
+        var popups = document.querySelectorAll('.popup');
+        popups.forEach(function(popup) {
+            if (popup.style.display === "flex") {
+                popup.style.display = "none";
+            }
+        });
 
+         // Cierra el sidebar si está abierto
+         var sidebar = document.getElementById("sidebar");
+         if (sidebar.style.width === "250px") {
+             closeNav(); // Llama a la función que cierra el sidebar
+         }
+    }
+});
 
 let model, webcam, labelContainer, resultLabelContainer, maxPredictions;
 let isRunning = false;
@@ -376,9 +393,29 @@ function GuardarPDF() {
         theme: 'grid',
         styles: { halign: 'center' },
         headStyles: { fillColor: [0, 0, 0] },
-        margin: { left: 20, right: 20 }
+        margin: { left: 20, right: 20 },
+        didDrawPage: function (data) {
+            // Pie de página
+            const pageCount = doc.internal.getNumberOfPages();
+            doc.setFontSize(10);
+            doc.setFont('helvetica', 'normal');
+        
+            // Ajuste de la longitud del texto
+            const footerText = 'Reporte generado por la aplicación web desarrollada por Jaime Jiménez como trabajo de fin de carrera para obtener el título de Ingeniero en Tecnologías de la Información.';
+            const pageHeight = doc.internal.pageSize.height;
+            const footerX = 20;
+            const footerY = pageHeight - 20;
+        
+            // Divide el texto en líneas si es necesario
+            const textLines = doc.splitTextToSize(footerText, 180);
+            doc.text(textLines, footerX, footerY);
+        
+            // Agregar número de página
+            doc.text(`Página ${data.pageNumber} de ${pageCount}`, doc.internal.pageSize.width - 50, pageHeight - 10);
+        }
     });
 
     // Guardar el PDF con el nombre "reporte_errores_peso_muerto.pdf"
     doc.save('reporte_errores_peso_muerto.pdf');
 }
+

@@ -13,11 +13,13 @@
     align-items: center;
     justify-content: center;
     width: 96%;
+    font-size: 0.9rem; /* Ajusta el tamaño del texto en la introducción */
 }
 
 .intro h1 {
     display: block; 
     margin: 0 auto;
+    font-size: 1.8rem; /* Reduce ligeramente el tamaño del título */
 }
 
 .recommendations {
@@ -29,6 +31,7 @@
     margin: 20px auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 95%;
+    font-size: 0.9rem; /* Ajusta el tamaño del texto general */
 }
 
 .recommendation {
@@ -37,12 +40,21 @@
 
 .recommendation h3 {
     color: #031749;
-    font-size: 1.75rem;
+    font-size: 1.5rem; /* Reduce ligeramente el tamaño del título */
 }
 
 .recommendation p, .recommendation ul {
     color: #031749;
-    font-size: 1.15rem;
+    font-size: 1rem; /* Reduce ligeramente el tamaño del texto */
+}
+
+
+.division img {
+    width: 100%;
+    max-width: 550px; /* Tamaño máximo de las imágenes */
+    height: auto; /* Mantiene la proporción original */
+    display: block; /* Asegura que la imagen ocupe toda la anchura del contenedor */
+    margin: 0 auto; /* Centra la imagen */
 }
 
 /* Ajustes para pantallas pequeñas (móviles) */
@@ -53,7 +65,7 @@
     }
 
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem; /* Reduce un poco más el tamaño del título para móviles */
         text-align: center;
     }
 
@@ -69,11 +81,11 @@
     }
 
     .recommendation h3 {
-        font-size: 1.5rem; /* Reduce ligeramente el tamaño del título en pantallas pequeñas */
+        font-size: 1.4rem; /* Reduce un poco más el tamaño del título en pantallas pequeñas */
     }
 
     .recommendation p, .recommendation ul {
-        font-size: 1rem; /* Reduce ligeramente el tamaño del texto */
+        font-size: 0.95rem; /* Reduce un poco más el tamaño del texto */
     }
 }
 
@@ -91,7 +103,15 @@
 
     .division img {
         width: 100%;
-        max-width: 500px;
+        max-width: 480px; /* Reduce ligeramente el tamaño máximo de la imagen */
         height: auto;
+    }
+
+    .recommendation h3 {
+        font-size: 1.4rem; /* Reduce ligeramente el tamaño del título en tablets */
+    }
+
+    .recommendation p, .recommendation ul {
+        font-size: 1rem; /* Mantiene un tamaño legible en tablets */
     }
 }

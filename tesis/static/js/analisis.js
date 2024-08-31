@@ -34,7 +34,24 @@ function showLoginMessage() {
     alert('Por favor, inicia sesión para comenzar.');
 }
 
+// Agregar un listener para detectar la tecla "Esc"
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") { // Detecta la tecla "Esc"
+        // Cierra el popup si está abierto
+        var popups = document.querySelectorAll('.popup');
+        popups.forEach(function(popup) {
+            if (popup.style.display === "flex") {
+                popup.style.display = "none";
+            }
+        });
 
+         // Cierra el sidebar si está abierto
+         var sidebar = document.getElementById("sidebar");
+         if (sidebar.style.width === "250px") {
+             closeNav(); // Llama a la función que cierra el sidebar
+         }
+    }
+});
 
 let model, maxPredictions;
 const canvas = document.createElement('canvas');

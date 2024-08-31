@@ -202,9 +202,13 @@ header {
 /* PIE DE PAGINA */
 .card {
     display: flex;
+    justify-content: flex-end; /* Envía los íconos a la derecha */
     height: 70px;
-    width: 350px; /* Aumenta el ancho para acomodar más iconos */
+    width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+    max-width: 350px; /* Máximo ancho del contenedor de los íconos */
+    margin: 0 right; /* Centra la tarjeta dentro del footer */
 }
+
 
 .card svg {
     position: absolute;
@@ -246,20 +250,6 @@ header {
     animation: bounce_613 0.4s linear;
 }
 
-.card .social-link2:hover {
-    background-color: #00ccff;
-    animation: bounce_613 0.4s linear;
-}
-
-.card .social-link3:hover {
-    background-color: #5865f2;
-    animation: bounce_613 0.4s linear;
-}
-
-.card .social-link4:hover {
-    background-color: #12a50b;
-    animation: bounce_613 0.4s linear;
-}
 
 .card .social-link5:hover {
     background-color: #3b5998; /* Facebook color */
@@ -287,6 +277,15 @@ footer {
     background-color: #80849c; /* Fondo del pie de página */
     margin-top: auto; /* Empuja el footer al final */
     display: flex;
+}
+
+.footer-message {
+    font-size: 1rem; /* Tamaño de la fuente */
+    font-weight: 500; /* Grosor del texto */
+    max-width: 60%; /* Asegura que el mensaje no ocupe más del 60% del ancho */
+    line-height: 1.5; /* Espaciado entre líneas */
+    text-align: left; /* Alinea el texto a la izquierda */
+    margin-right: auto; /* Empuja el mensaje hacia la izquierda */
 }
 
 .social-icons {
@@ -355,19 +354,23 @@ footer {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    padding: 10px; /* Añadir padding para asegurar espacio en pantallas pequeñas */
 }
 
 .popup-content {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    width: 80%;
+    width: 90%; /* Reducir el ancho en pantallas más pequeñas */
     max-width: 500px;
     position: relative;
+    overflow-y: auto; /* Permite el desplazamiento en contenido extenso */
+    max-height: 90vh; /* Limitar la altura máxima para asegurar que no se salga de la pantalla */
 }
 
 .popup-content h2 {
     margin-top: 0;
+    font-size: 1.8rem; /* Ajustar el tamaño de la fuente para pantallas pequeñas */
 }
 
 .popup-content .close {
@@ -376,6 +379,7 @@ footer {
     right: 10px;
     font-size: 1.5rem;
     cursor: pointer;
+    z-index: 1001; /* Asegura que la X esté siempre encima */
 }
 
 .popup-content form {
@@ -404,7 +408,16 @@ footer {
     cursor: pointer;
 }
 
+.button-icon {
+    width: 25px; /* Ajusta el tamaño del ícono */
+    height: 25px; /* Mantén las proporciones */
+    margin-right: 8px; /* Espacio entre el ícono y el texto */
+    vertical-align: middle; /* Alinea el ícono verticalmente con el texto */
+}
 
+.btn.inverted:hover .button-icon {
+    filter: invert(1); /* Invierte los colores del ícono */
+}
 
 /* Ajustes generales para pantallas pequeñas */
 @media only screen and (max-width: 768px) {
@@ -434,22 +447,23 @@ footer {
         align-items: center; /* Alinea verticalmente en el centro */
         gap: 5px; /* Espacio entre el nombre y el botón */
     }
-    
-    .welcome-message {
-        margin: 0; /* Elimina márgenes innecesarios */
-        white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
-        font-size: 0.65rem;
-    }
-    
+
     .btn.inverted {
+        display: flex; /* Cambia el botón a un contenedor flex */
+        align-items: center; /* Alinea ícono y texto en el centro verticalmente */
+        justify-content: center; /* Centra ícono y texto horizontalmente */
         padding: 4px 8px; /* Ajusta el padding para que el botón no ocupe demasiado espacio */
         font-size: 0.6rem; /* Un tamaño de fuente más pequeño */
         white-space: nowrap; /* Evita que el texto se rompa en dos líneas */
-        display: inline-block; /* Asegura que el botón no se expanda más de lo necesario */
         max-width: 100%; /* Evita que el botón se desborde */
         box-sizing: border-box; /* Incluye el padding dentro del ancho del botón */
     }
-    
+
+    .btn.inverted img {
+        margin-right: 5px; /* Espacio entre el ícono y el texto */
+        width: 16px; /* Ajusta el tamaño del ícono */
+        height: 16px; /* Ajusta el tamaño del ícono */
+    }
     
     img {
         width: 100%; /* La imagen se ajusta al 100% del ancho de su contenedor */
@@ -458,8 +472,11 @@ footer {
         display: block; /* Elimina cualquier espacio extra generado por elementos inline */
         margin: 0 auto; /* Centra la imagen si hay espacio disponible */
     }
-    
 
+    .welcome-message {
+        font-size: 0.70rem;
+        
+    }
     .horizontal-container {
         flex-direction: column;
         align-items: center;
@@ -481,7 +498,6 @@ footer {
         max-height: 300px; /* Limita la altura máxima del video */
     }
     
-
     .btn {
         width: 80%;
         font-size: 1rem;
@@ -492,7 +508,6 @@ footer {
         text-align: center;
     }
 
-
     footer {
         padding: 20px;
         background-color: #80849c; /* Fondo del footer */
@@ -501,6 +516,12 @@ footer {
         width: 100%;
         box-sizing: border-box;
     }
+
+    .footer-message {
+        font-size: 0.65rem; /* Ajusta el tamaño del texto en pantallas pequeñas */
+        max-width: 100%; /* Permite que el mensaje ocupe todo el ancho si es necesario */
+        margin-bottom: 10px; /* Espacio inferior para separación */
+    }
     
     .social-icons {
         display: flex;
@@ -508,6 +529,7 @@ footer {
         align-items: center;
         gap: 15px; /* Espacio entre los íconos */
         flex-wrap: wrap; /* Permite que los íconos se muevan a la siguiente línea si es necesario */
+        margin-top: 0; 
     }
     
     .card {
@@ -536,7 +558,6 @@ footer {
     .card a:hover {
         background-color: #f09433; /* Efecto hover */
     }
-    
 }
 
 /* Ajustes para tablets */
@@ -557,6 +578,18 @@ footer {
     .auth-buttons {
         flex-direction: row;
         gap: 15px;
+    }
+
+    .btn.inverted {
+        display: flex; /* Cambia el botón a un contenedor flex */
+        align-items: center; /* Alinea ícono y texto en el centro verticalmente */
+        justify-content: center; /* Centra ícono y texto horizontalmente */
+    }
+
+    .btn.inverted img {
+        margin-right: 5px; /* Espacio entre el ícono y el texto */
+        width: 16px; /* Ajusta el tamaño del ícono */
+        height: 16px; /* Ajusta el tamaño del ícono */
     }
 
     .horizontal-container {
@@ -581,8 +614,6 @@ footer {
         margin: 0 auto; /* Centra el contenedor dentro del área */
     }
 }
-
-
 
 @media only screen and (orientation: landscape) {
     .horizontal-container {
