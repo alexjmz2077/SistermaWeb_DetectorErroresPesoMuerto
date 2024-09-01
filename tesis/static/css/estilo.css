@@ -282,7 +282,7 @@ footer {
 .footer-message {
     font-size: 1rem; /* Tamaño de la fuente */
     font-weight: 500; /* Grosor del texto */
-    max-width: 60%; /* Asegura que el mensaje no ocupe más del 60% del ancho */
+    max-width: 50%; /* Asegura que el mensaje no ocupe más del 60% del ancho */
     line-height: 1.5; /* Espaciado entre líneas */
     text-align: left; /* Alinea el texto a la izquierda */
     margin-right: auto; /* Empuja el mensaje hacia la izquierda */
