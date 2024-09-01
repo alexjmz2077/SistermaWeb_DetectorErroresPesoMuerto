@@ -18,6 +18,7 @@
         const urlRecomendaciones = "{% url 'recomendaciones' %}";
         const modelURLBase = "{% static 'Models/Tesis_f/' %}";
         const urlAnalisis = "{% url 'predict_frame' %}";
+        const nombreUsuario = "{{ user.first_name }} {{ user.last_name }}";
     </script>
 </head>
 <body>
@@ -137,7 +138,8 @@
                     <h3>Detector de errores en peso muerto</h3>
                     <br><br>
                     <div id="results-content"></div>
-                    <button class="btn" onclick="guardarResultados()">Guardar</button>
+                    <button class="btn" onclick="guardarResultados()">Guardar .csv</button>
+                    <button class="btn" onclick="GuardarPDF()"> Guardar .pdf</button>
                     <button class="btn" id="salirButton" onclick="PaginaAnalisis()">Salir</button>
                 </div>
             </main>
@@ -170,3 +172,4 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
