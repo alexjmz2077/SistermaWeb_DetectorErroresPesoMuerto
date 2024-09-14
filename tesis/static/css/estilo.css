@@ -16,7 +16,26 @@ body, html {
     flex-direction: column;
 }
 
+.logo {
+    width: 15%; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+    margin-left: 10px; /* Espaciado entre el botón y la imagen */
+    vertical-align: middle; /* Alinear verticalmente con el botón */
+}
 
+#registerMessage {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+#registerMessage a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#registerMessage a:hover {
+    text-decoration: underline;
+}
 
 .sidebar {
     height: 100%; /* Full-height: always stays full-height */
@@ -311,9 +330,8 @@ footer {
 /* Botón Invertido Pequeño y Alineado a la Derecha */
 .auth-buttons {
     display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-right: 10px;
+    justify-content: center; /* Centrar horizontalmente */
+    gap: 0; /* Eliminar cualquier espacio entre los botones */
 }
 
 .btn.inverted {
@@ -321,7 +339,7 @@ footer {
     color: #031749;
     border: 2px solid #031749;
     padding: 8px 5px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
@@ -409,9 +427,8 @@ footer {
 }
 
 .button-icon {
-    width: 25px; /* Ajusta el tamaño del ícono */
-    height: 25px; /* Mantén las proporciones */
-    margin-right: 8px; /* Espacio entre el ícono y el texto */
+    width: 20px; /* Ajusta el tamaño del ícono */
+    height: 20px; /* Mantén las proporciones */
     vertical-align: middle; /* Alinea el ícono verticalmente con el texto */
 }
 
@@ -437,7 +454,12 @@ footer {
         margin-top: 0; /* Eliminar margen superior */
         line-height: 1.2; /* Ajustar la altura de la línea */
     }
-
+    .logo {
+        width: 35%; /* Ajusta el tamaño según sea necesario */
+        height: auto;
+        margin-left: 5px; /* Espaciado entre el botón y la imagen */
+        vertical-align: middle; /* Alinear verticalmente con el botón */
+    }
     .menu {
         font-size: 2rem;
     }
@@ -445,15 +467,14 @@ footer {
     .auth-buttons {
         display: flex;
         align-items: center; /* Alinea verticalmente en el centro */
-        gap: 5px; /* Espacio entre el nombre y el botón */
     }
-
+    
     .btn.inverted {
         display: flex; /* Cambia el botón a un contenedor flex */
         align-items: center; /* Alinea ícono y texto en el centro verticalmente */
         justify-content: center; /* Centra ícono y texto horizontalmente */
         padding: 4px 8px; /* Ajusta el padding para que el botón no ocupe demasiado espacio */
-        font-size: 0.6rem; /* Un tamaño de fuente más pequeño */
+        font-size: 0.8rem; /* Un tamaño de fuente más pequeño */
         white-space: nowrap; /* Evita que el texto se rompa en dos líneas */
         max-width: 100%; /* Evita que el botón se desborde */
         box-sizing: border-box; /* Incluye el padding dentro del ancho del botón */
@@ -461,8 +482,8 @@ footer {
 
     .btn.inverted img {
         margin-right: 5px; /* Espacio entre el ícono y el texto */
-        width: 16px; /* Ajusta el tamaño del ícono */
-        height: 16px; /* Ajusta el tamaño del ícono */
+        width: 18px; /* Ajusta el tamaño del ícono */
+        height: 18px; /* Ajusta el tamaño del ícono */
     }
     
     img {
@@ -499,8 +520,9 @@ footer {
     }
     
     .btn {
-        width: 80%;
+        width: 90%;
         font-size: 1rem;
+        margin: 5px;
     }
 
     .titulos_btn {
@@ -577,7 +599,6 @@ footer {
 
     .auth-buttons {
         flex-direction: row;
-        gap: 15px;
     }
 
     .btn.inverted {

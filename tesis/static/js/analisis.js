@@ -376,7 +376,7 @@ function GuardarPDF() {
             doc.setFont('helvetica', 'normal');
         
             // Ajuste de la longitud del texto
-            const footerText = 'Reporte generado por la aplicación web desarrollada por Jaime Jiménez como trabajo de fin de carrera para obtener el título de Ingeniero en Tecnologías de la Información.';
+            const footerText = 'Reporte generado por DLchecker, desarrollada por Jaime Jiménez como trabajo de fin de carrera para obtener el título de Ingeniero en Tecnologías de la Información.';
             const pageHeight = doc.internal.pageSize.height;
             const footerX = 20;
             const footerY = pageHeight - 20;

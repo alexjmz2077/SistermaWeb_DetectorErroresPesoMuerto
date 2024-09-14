@@ -30,6 +30,7 @@
     <div class="container">
         <header>
             <button class="menu" onclick="openNav()">≡</button>
+            <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo">
             <div class="auth-buttons">
                 {% if user.is_authenticated %}
                 <span class="welcome-message">Bienvenido, {{ user.first_name }} {{ user.last_name }}</span>
@@ -39,7 +40,7 @@
                     </form>
                 {% else %}
                     <button class="btn inverted" onclick="openLoginPopup()"> <img src="{% static 'img/login.png' %}" alt="Iniciar Sesión" class="button-icon"> Iniciar Sesión</button>
-                    <button class="btn inverted" onclick="openRegisterPopup()"> <img src="{% static 'img/register.png' %}" alt="Registrarse" class="button-icon"> Registrarse</button>
+                    
                 {% endif %}
             </div>
             {% if login_error %}
@@ -70,6 +71,9 @@
                         <label for="loginPassword">Contraseña</label>
                         <input type="password" id="loginPassword" name="password" required>
                         <button type="submit" class="btn">Ingresar</button>
+                        <div id="registerMessage">
+                            <p>¿No tienes una cuenta? <a href="javascript:void(0);" onclick="openRegisterPopup()">Regístrate</a></p>
+                        </div>
                         {% if error %}
                             <div class="error-message">{{ error }}</div>
                         {% endif %}
@@ -157,7 +161,7 @@
             
             <div class="social-icons">
                 <div class="footer-message">
-                    Aplicación web desarrollada por Jaime Jiménez como trabajo de fin de carrera para obtener el título de Ingeniero en Tecnologías de la Información.
+                    DLchecker es desarrollada por Jaime Jiménez como trabajo de fin de carrera para obtener el título de Ingeniero en Tecnologías de la Información.
                 </div>
                 <div class="card">
                     <a class="social-link1" href="https://www.instagram.com/alexjmz__/">
