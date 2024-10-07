@@ -35,6 +35,119 @@ function showLoginMessage() {
     alert('Por favor, inicia sesión para comenzar.');
 }
 
+function tutorial() {
+
+    const driver = window.driver.js.driver;
+
+    const driverObj = driver({
+    showProgress: true,
+    showButtons: ['next', 'previous'],
+    steps: [
+        {element: '.menu',  
+        popover: {
+            title: 'Menú',
+            description: 'Usa este botón para abrir el menú y navegar entre las secciones.',
+
+        }},
+        {
+            element: '.auth-buttons', // Sección de autenticación
+            popover: {
+                title: 'Autenticación',
+                description: 'Si no has iniciado sesión, haz clic aquí para iniciar o registrarte.',
+
+            }
+        },
+        {
+            element: '#startButton',
+            popover: {
+                title: 'Empezar',
+                description: 'Haz clic aquí para comenzar.',
+
+            }
+        },
+    ]
+    });
+    driverObj.drive();
+}
+
+
+function tutorial2() {
+
+    const driver = window.driver.js.driver;
+
+    const driverObj = driver({
+    showProgress: true,
+    showButtons: ['next', 'previous'],
+    steps: [
+        {
+            element: '#resultadosButton',
+            popover: {
+                title: 'Resultados',
+                description: 'Aquí puedes ver los resultados.',
+                position: 'bottom'
+            }
+        },
+        {
+            element: '#salirButton',
+            popover: {
+                title: 'Salir',
+                description: 'Haz clic aquí para salir.',
+                position: 'bottom'
+            }
+        },
+        {
+            element: '#label-container',
+            popover: {
+                title: 'Errores Peso Muerto',
+                description: 'Aqui puedes visualizar los errores en tiempo real',
+                position: 'bottom'
+            }
+        },
+    ]
+    });
+    driverObj.drive();
+}
+
+
+function tutorial3() {
+
+    const driver = window.driver.js.driver;
+
+    const driverObj = driver({
+    showProgress: true,
+    showButtons: ['next', 'previous'],
+    steps: [
+        {
+            element: '#csv',
+            popover: {
+                title: 'Guardar CSV',
+                description: 'Haz clic aquí para descargar los resultados en formato CSV.',
+                position: 'bottom'
+            }
+        },
+        {
+            element: '#pdf',
+            popover: {
+                title: 'Guardar PDF',
+                description: 'Haz clic aquí para descargar los resultados en formato PDF.',
+                position: 'bottom'
+            }
+        },
+        {
+            element: '#salirButton2',
+            popover: {
+                title: 'Salir',
+                description: 'Haz clic aquí para salir.',
+                position: 'bottom'
+            }
+        },
+    ]
+    });
+    driverObj.drive();
+}
+
+
+
 // Agregar un listener para detectar la tecla "Esc"
 document.addEventListener('keydown', function(event) {
     if (event.key === "Escape") { // Detecta la tecla "Esc"
@@ -72,6 +185,8 @@ async function init() {
     document.getElementById('salirButton').style.display = 'block';
     document.getElementById('img_screen').style.display = 'none';
     document.getElementById('label-container').style.display = 'flex';
+    document.getElementById('tutorial2').style.display = 'flex';
+    document.getElementById('tutorial').style.display = 'none';
 
     const modelURL = URL + "model.json";
     const metadataURL = URL + "metadata.json";
@@ -287,6 +402,8 @@ function resultados() {
     document.getElementById('container_results').style.display = 'flex';
     document.getElementById('hz').style.display = 'none';
     document.getElementById('label-container').style.display = 'none';
+    document.getElementById('tutorial2').style.display = 'none';
+    document.getElementById('tutorial3').style.display = 'flex';
 
     // Mostrar resumen de resultados
     resultLabelContainer.innerHTML = '';

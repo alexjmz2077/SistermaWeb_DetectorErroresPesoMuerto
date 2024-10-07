@@ -135,6 +135,23 @@ header {
 }
 
 
+#videoUpload {
+
+    margin: 20px auto; /* Centra el input horizontalmente con márgenes */
+    padding: 10px 20px; /* Añade espacio dentro del botón */
+    background-color: white; /* Fondo del botón que coincide con los otros elementos */
+    color: #031749; /* Color del texto del botón */
+    border: 2px solid #031749;/* Elimina los bordes predeterminados */
+    border-radius: 25px; /* Bordes redondeados, similar a otros botones */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s, color 0.3s; /* Efecto de transición suave */
+}
+
+#videoUpload:hover {
+    background-color: #031749; /* Cambia el fondo al pasar el mouse */
+    color: white; /* Cambia el color del texto al pasar el mouse */
+    border: 2px solid white; /* Añade un borde de color similar */
+}
 
 
 /* Estilos para las predicciones en tiempo real */
@@ -338,17 +355,21 @@ footer {
     background-color: white;
     color: #031749;
     border: 2px solid #031749;
-    padding: 8px 5px;
+    padding: 8px 15px; /* Ajusta el padding horizontalmente para más espacio dentro */
     font-size: 1rem;
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+    width: auto; /* Ajusta automáticamente al tamaño del contenido */
+    display: inline-block; /* Asegura que el botón no ocupe el ancho completo */
 }
+
 
 .btn.inverted:hover {
     background-color: #031749;
     color: white;
 }
+
 
 
 .welcome-message {
@@ -461,7 +482,7 @@ footer {
         vertical-align: middle; /* Alinear verticalmente con el botón */
     }
     .menu {
-        font-size: 2rem;
+        font-size: 1.4rem;
     }
 
     .auth-buttons {
@@ -478,12 +499,14 @@ footer {
         white-space: nowrap; /* Evita que el texto se rompa en dos líneas */
         max-width: 100%; /* Evita que el botón se desborde */
         box-sizing: border-box; /* Incluye el padding dentro del ancho del botón */
+        width: auto; /* Ajusta automáticamente al tamaño del contenido */
     }
+    
 
     .btn.inverted img {
         margin-right: 5px; /* Espacio entre el ícono y el texto */
-        width: 18px; /* Ajusta el tamaño del ícono */
-        height: 18px; /* Ajusta el tamaño del ícono */
+        width: 22px; /* Ajusta el tamaño del ícono */
+        height: 22px; /* Ajusta el tamaño del ícono */
     }
     
     img {

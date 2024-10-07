@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{% static 'img/pesa.ico' %}" type="image/x-icon">
-    <title>Tesis</title>
+    <link rel="icon" href="{% static 'img/logo2.ico' %}" type="image/x-icon">
+    <title>Detector de errores en Peso Muerto</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
@@ -19,6 +19,9 @@
         const urlAnalisis = "{% url 'predict_frame' %}";
         const nombreUsuario = "{{ user.first_name }} {{ user.last_name }}";
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/driver.js@0.9.8/dist/driver.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@0.9.8/dist/driver.min.css">    
+    
 </head>
 <body>
     <div class="sidebar" id="sidebar">
@@ -31,6 +34,7 @@
         <header>
             <button class="menu" onclick="openNav()">≡</button>
             <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo">
+            
             <div class="auth-buttons">
                 {% if user.is_authenticated %}
                 <span class="welcome-message">Bienvenido, {{ user.first_name }} {{ user.last_name }}</span>
@@ -53,6 +57,9 @@
                     alert('{{ register_error }}');
                 </script>
             {% endif %}
+            <button class="btn inverted" type="button" id="tutorial" onclick="tutorial()"> <img src="{% static 'img/tutorial.png' %}" class="button-icon"></button>
+            <button class="btn inverted" type="button" id="tutorial2" onclick="tutorial2()" style="display: none;"> <img src="{% static 'img/tutorial.png' %}" class="button-icon"></button>
+            <button class="btn inverted" type="button" id="tutorial3" onclick="tutorial3()" style="display: none;"> <img src="{% static 'img/tutorial.png' %}" class="button-icon"></button>
         </header>
         <main>
             <br>
@@ -151,14 +158,13 @@
                 <h3>Detector de errores en peso muerto</h3>
                 <br><br>
                 <div id="results-content"></div>
-                <button class="btn" onclick="Guardar()"> Guardar .csv</button>
-                <button class="btn" onclick="GuardarPDF()"> Guardar .pdf</button>
+                <button class="btn" id="csv" onclick="Guardar()"> Guardar .csv</button>
+                <button class="btn" id="pdf" onclick="GuardarPDF()"> Guardar .pdf</button>
                 <button class="btn" id="salirButton2" onclick="Salir()" >Salir</button>
             </div>
         </main>
         <br>
         <footer>
-            
             <div class="social-icons">
                 <div class="footer-message">
                     DLchecker es desarrollada por Jaime Jiménez como trabajo de fin de carrera para obtener el título de Ingeniero en Tecnologías de la Información.
@@ -189,3 +195,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.14/jspdf.plugin.autotable.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
