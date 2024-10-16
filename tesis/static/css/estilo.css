@@ -485,7 +485,7 @@ footer {
         line-height: 1.2; /* Ajustar la altura de la línea */
     }
     .logo {
-        width: 35%; /* Ajusta el tamaño según sea necesario */
+        width: 30%; /* Ajusta el tamaño según sea necesario */
         height: auto;
         margin-left: 5px; /* Espaciado entre el botón y la imagen */
         vertical-align: middle; /* Alinear verticalmente con el botón */
@@ -501,7 +501,7 @@ footer {
 
     #btn_login {
         padding: 5px 10px; /* Reduce el padding interno */
-        font-size: 0.8rem; /* Reduce el tamaño de la fuente */
+        font-size: 0.7rem; /* Reduce el tamaño de la fuente */
         width: auto; /* Ajusta automáticamente al contenido */
         height: auto; /* Ajusta la altura según el contenido */
         display: inline-flex; /* Alinea el contenido internamente */
