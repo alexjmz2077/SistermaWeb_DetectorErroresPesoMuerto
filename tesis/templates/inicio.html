@@ -19,8 +19,7 @@
         const urlAnalisis = "{% url 'predict_frame' %}";
         const nombreUsuario = "{{ user.first_name }} {{ user.last_name }}";
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/driver.js@0.9.8/dist/driver.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@0.9.8/dist/driver.min.css">    
+  
     
 </head>
 <body>
@@ -33,17 +32,17 @@
     <div class="container">
         <header>
             <button class="menu" onclick="openNav()">≡</button>
-            <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo">
+            <img src="{% static 'img/logo.webp' %}" alt="Logo" class="logo">
             
             <div class="auth-buttons">
                 {% if user.is_authenticated %}
                 <span class="welcome-message">Bienvenido, {{ user.first_name }} {{ user.last_name }}</span>
                     <form action="{% url 'logout' %}" method="post">
                         {% csrf_token %}
-                        <button class="btn inverted" type="submit">  <img src="{% static 'img/logout.png' %}" alt="Cerrar Sesión" class="button-icon"> Cerrar Sesión</button>
+                        <button class="btn inverted" type="submit" id="btn_login">  <img src="{% static 'img/logout.webp' %}" alt="Cerrar Sesión" class="button-icon"> Cerrar Sesión</button>
                     </form>
                 {% else %}
-                    <button class="btn inverted" onclick="openLoginPopup()"> <img src="{% static 'img/login.png' %}" alt="Iniciar Sesión" class="button-icon"> Iniciar Sesión</button>
+                    <button class="btn inverted" onclick="openLoginPopup()"> <img src="{% static 'img/login.webp' %}" alt="Iniciar Sesión" class="button-icon"> Iniciar Sesión</button>
                     
                 {% endif %}
             </div>
@@ -57,9 +56,9 @@
                     alert('{{ register_error }}');
                 </script>
             {% endif %}
-            <button class="btn inverted" type="button" id="tutorial" onclick="tutorial()"> <img src="{% static 'img/tutorial.png' %}" class="button-icon"></button>
-            <button class="btn inverted" type="button" id="tutorial2" onclick="tutorial2()" style="display: none;"> <img src="{% static 'img/tutorial.png' %}" class="button-icon"></button>
-            <button class="btn inverted" type="button" id="tutorial3" onclick="tutorial3()" style="display: none;"> <img src="{% static 'img/tutorial.png' %}" class="button-icon"></button>
+            <button class="btn inverted" type="button" id="tutorial" onclick="tutorial()">  <img src="{% static 'img/tutorial.webp' %}" class="button-icon"></button>
+            <button class="btn inverted" type="button" id="tutorial2" onclick="tutorial2()" style="display: none;"> <img src="{% static 'img/tutorial.webp' %}" class="button-icon"></button>
+            <button class="btn inverted" type="button" id="tutorial3" onclick="tutorial3()" style="display: none;"> <img src="{% static 'img/tutorial.webp' %}" class="button-icon"></button>
         </header>
         <main>
             <br>
@@ -147,7 +146,7 @@
                 </div>
                 <div class="video", id="container" >
                     <div class="webcam" id="webcam-container">
-                        <img src="{% static 'img/screen_record.png' %}" alt="" id="img_screen">
+                        <img src="{% static 'img/screen_record.webp' %}" alt="" id="img_screen">
                     </div>
                 </div>
             </div>

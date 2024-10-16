@@ -53,6 +53,126 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+function tutorial() {
+
+    const driver = window.driver.js.driver;
+
+    const driverObj = driver({
+    showProgress: true,
+    showButtons: ['next', 'previous'],
+    steps: [
+        {element: '.menu',  
+        popover: {
+            title: 'Menú',
+            description: 'Usa este botón para abrir el menú y navegar entre las secciones.',
+
+        }},
+        {
+            element: '.auth-buttons', // Sección de autenticación
+            popover: {
+                title: 'Autenticación',
+                description: 'Si no has iniciado sesión, haz clic aquí para iniciar o registrarte.',
+
+            }
+        },
+        {
+            element: '#videoUpload',
+            popover: {
+                title: 'Empezar',
+                description: 'Haz clic aquí para cargar el video.',
+
+            }
+        },
+        {
+            element: '#uploadButton',
+            popover: {
+                title: 'Mostrar Resultados',
+                description: 'Haz clic aquí para subir el video.',
+
+            }
+        },
+    ]
+    });
+    driverObj.drive();
+}
+
+
+function tutorial2() {
+
+    const driver = window.driver.js.driver;
+
+    const driverObj = driver({
+    showProgress: true,
+    showButtons: ['next', 'previous'],
+    steps: [
+        {
+            element: '#resultadosButton',
+            popover: {
+                title: 'Resultados',
+                description: 'Aquí puedes ver los resultados.',
+                position: 'bottom'
+            }
+        },
+        {
+            element: '#salirButton',
+            popover: {
+                title: 'Salir',
+                description: 'Haz clic aquí para salir.',
+                position: 'bottom'
+            }
+        },
+        {
+            element: '#label-container',
+            popover: {
+                title: 'Errores Peso Muerto',
+                description: 'Aqui puedes visualizar los errores en tiempo real',
+                position: 'bottom'
+            }
+        },
+    ]
+    });
+    driverObj.drive();
+}
+
+
+function tutorial3() {
+
+    const driver = window.driver.js.driver;
+
+    const driverObj = driver({
+    showProgress: true,
+    showButtons: ['next', 'previous'],
+    steps: [
+        {
+            element: '#csv',
+            popover: {
+                title: 'Guardar CSV',
+                description: 'Haz clic aquí para descargar los resultados en formato CSV.',
+                position: 'bottom'
+            }
+        },
+        {
+            element: '#pdf',
+            popover: {
+                title: 'Guardar PDF',
+                description: 'Haz clic aquí para descargar los resultados en formato PDF.',
+                position: 'bottom'
+            }
+        },
+        {
+            element: '#salirButton2',
+            popover: {
+                title: 'Salir',
+                description: 'Haz clic aquí para salir.',
+                position: 'bottom'
+            }
+        },
+    ]
+    });
+    driverObj.drive();
+}
+
+
 let model, maxPredictions;
 const canvas = document.createElement('canvas');
 const context = canvas.getContext('2d');

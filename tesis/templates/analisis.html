@@ -12,6 +12,7 @@
     <!-- <script src="{% static 'js/fun.js' %}" defer></script> --> 
     <script src="{% static 'js/analisis.js' %}" defer></script>
     
+    
     <script>
         // Definir las URLs en el contexto global de JavaScript
         const urlInicio = "{% url 'inicio' %}";
@@ -20,6 +21,7 @@
         const urlAnalisis = "{% url 'predict_frame' %}";
         const nombreUsuario = "{{ user.first_name }} {{ user.last_name }}";
     </script>
+   
 </head>
 <body>
     <div class="sidebar" id="sidebar">
@@ -31,16 +33,16 @@
     <div class="container">
         <header>
             <button class="menu" onclick="openNav()">≡</button>
-            <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo">
+            <img src="{% static 'img/logo.webp' %}" alt="Logo" class="logo">
             <div class="auth-buttons">
                 {% if user.is_authenticated %}
                 <span class="welcome-message">Bienvenido, {{ user.first_name }} {{ user.last_name }}</span>
                     <form action="{% url 'logout' %}" method="post">
                         {% csrf_token %}
-                        <button class="btn inverted" type="submit">  <img src="{% static 'img/logout.png' %}" alt="Cerrar Sesión" class="button-icon"> Cerrar Sesión</button>
+                        <button class="btn inverted" type="submit">  <img src="{% static 'img/logout.webp' %}" alt="Cerrar Sesión" class="button-icon"> Cerrar Sesión</button>
                     </form>
                 {% else %}
-                    <button class="btn inverted" onclick="openLoginPopup()"> <img src="{% static 'img/login.png' %}" alt="Iniciar Sesión" class="button-icon"> Iniciar Sesión</button>
+                    <button class="btn inverted" onclick="openLoginPopup()"> <img src="{% static 'img/login.webp' %}" alt="Iniciar Sesión" class="button-icon"> Iniciar Sesión</button>
                     
                 {% endif %}
             </div>
@@ -54,6 +56,9 @@
                     alert('{{ register_error }}');
                 </script>
             {% endif %}
+            <button class="btn inverted" type="button" id="tutorial" onclick="tutorial()"> <img src="{% static 'img/tutorial.webp' %}" class="button-icon"></button>
+            <button class="btn inverted" type="button" id="tutorial2" onclick="tutorial2()" style="display: none;"> <img src="{% static 'img/tutorial.webp' %}" class="button-icon"></button>
+            <button class="btn inverted" type="button" id="tutorial3" onclick="tutorial3()" style="display: none;"> <img src="{% static 'img/tutorial.webp' %}" class="button-icon"></button>
         </header>
         <main>
             <br>
@@ -177,3 +182,9 @@
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.14/jspdf.plugin.autotable.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>

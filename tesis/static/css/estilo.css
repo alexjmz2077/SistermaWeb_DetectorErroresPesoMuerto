@@ -90,6 +90,7 @@ header {
     border: none;
     font-size: 35px;
     font-size: 2.4rem;
+    cursor: pointer;
     color: #031749; /* Icono del menú en blanco para contraste */
 }
 
@@ -467,6 +468,14 @@ footer {
         font-size: 2rem;
         text-align: center;
     }
+
+
+    header {
+        width: 100%; /* Ocupa todo el ancho */
+        margin: 0; /* Elimina márgenes */
+        padding: 0; /* Elimina padding */
+        box-sizing: border-box; /* Asegura que padding no afecte el ancho */
+    }
     
     #container_results h2 {
         color: #031749; /* Color del texto */
@@ -483,11 +492,32 @@ footer {
     }
     .menu {
         font-size: 1.4rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: flex-start; /* Alinea a la izquierda */
+        margin: 0; /* Elimina cualquier margen */
+        padding: 0; /* Asegura que no haya padding interno */
     }
+
+    #btn_login {
+        padding: 5px 10px; /* Reduce el padding interno */
+        font-size: 0.8rem; /* Reduce el tamaño de la fuente */
+        width: auto; /* Ajusta automáticamente al contenido */
+        height: auto; /* Ajusta la altura según el contenido */
+        display: inline-flex; /* Alinea el contenido internamente */
+        align-items: center; /* Alinea verticalmente el contenido */
+        justify-content: center; /* Centra el contenido horizontalmente */
+        margin: 0; /* Elimina márgenes que pudieran generar espacios en blanco */
+        box-sizing: border-box; /* Asegura que padding no afecte el tamaño total */
+    }
+    
+    
 
     .auth-buttons {
         display: flex;
         align-items: center; /* Alinea verticalmente en el centro */
+        margin: 0; /* Elimina cualquier margen */
+        padding: 0
     }
     
     .btn.inverted {
@@ -505,8 +535,10 @@ footer {
 
     .btn.inverted img {
         margin-right: 5px; /* Espacio entre el ícono y el texto */
-        width: 22px; /* Ajusta el tamaño del ícono */
-        height: 22px; /* Ajusta el tamaño del ícono */
+        width: 20px; /* Ajusta el tamaño del ícono */
+        height: 20px; /* Ajusta el tamaño del ícono */
+        margin: 0; /* Elimina cualquier margen */
+        padding: 0
     }
     
     img {
@@ -518,7 +550,9 @@ footer {
     }
 
     .welcome-message {
-        font-size: 0.70rem;
+        font-size: 0.60rem;
+        margin: 0; /* Elimina cualquier margen */
+        padding: 0
         
     }
     .horizontal-container {
